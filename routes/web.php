@@ -15,9 +15,10 @@ use App\Http\Controllers\RequestController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
-Route::redirect('/', 'request');
+    return view('login');
+})->middleware(['auth'])->name('login');
+
+Route::redirect('/request', 'request');
 Route::resource('request', RequestController::class);
 
 Route::get('/dashboard', function () {
