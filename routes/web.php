@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\RequestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +13,12 @@ use App\Http\Controllers\RequestController;
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
-Route::redirect('/', 'request');
-Route::resource('request', RequestController::class);
+Route::get('/', function () {
+    return view('welcome');
+});
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
