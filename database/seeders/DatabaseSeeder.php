@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use App\Models\Requests;
-use App\Models\Users;
+use App\Models\User;
 use App\Models\Groups;
 use App\Models\Comments;
 
@@ -40,7 +40,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
-        $users = Users::create([
+        $users = User::create([
             'id' => 1,
             'name' => 'Jānis',
             'surname' => 'Saulītis',
@@ -48,7 +48,7 @@ class DatabaseSeeder extends Seeder
             'password' => 'a6ccEZ94',
             'groupID' => 1,
         ]);
-        $users = Users::create([
+        $users = User::create([
             'id' => 2,
             'name' => 'Emīls',
             'surname' => 'Ozoliņš',
@@ -57,7 +57,7 @@ class DatabaseSeeder extends Seeder
             'password' => 'Pm3ucbKm',
             'groupID' => 1,
         ]);
-        $users = Users::create([
+        $users = User::create([
             'id' => 3,
             'name' => 'Anna',
             'surname' => 'Priedīte',
@@ -65,7 +65,7 @@ class DatabaseSeeder extends Seeder
             'password' => 'MMpgQx5D',
             'groupID' => 1,
         ]);
-        $users = Users::create([
+        $users = User::create([
             'id' => 4,
             'name' => 'Ieva',
             'surname' => 'Zariņa',
@@ -73,7 +73,7 @@ class DatabaseSeeder extends Seeder
             'password' => '7GXbVeR3',
             'groupID' => 2,
         ]);
-        $users = Users::create([
+        $users = User::create([
             'id' => 5,
             'name' => 'Gustavs',
             'surname' => 'Liepa',
