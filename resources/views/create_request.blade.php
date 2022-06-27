@@ -40,6 +40,13 @@
 
     <input type="submit" value="Send">
 </form>
+<br>
+<div><button type="button" onclick="goToHome()">Cancel</button></div> <br><br>
+<script>
+    function goToHome() {
+        window.location.href="/dashboard";
+    }
+</script>
 
 </body>
 </html>
