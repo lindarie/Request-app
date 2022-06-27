@@ -21,6 +21,10 @@ Route::get('/', function () {
 Route::redirect('/request', 'request');
 Route::resource('request', RequestController::class);
 
+Route::get('/create/request', function () {
+    return view('create_request');
+})->middleware(['auth'])->name('create_request');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');

@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Comments;
 class Requests extends Model
 {
+    protected $fillable = ['request_type', 'status', 'name','priority', 'attachment', 'date', 'description', 'userID'];
     use HasFactory;
     public function users()
     { // FKrelationship

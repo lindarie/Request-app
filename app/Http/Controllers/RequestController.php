@@ -1,10 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\Requests;
-
+use Auth;
 class RequestController extends Controller
 {
     /**
@@ -25,7 +24,7 @@ class RequestController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -36,7 +35,19 @@ class RequestController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $currentuserid = Auth::user()->id;
+        $newrequest = Requests::create([
+            'request_type' => $request->request_type,
+            'status' => $request->status,
+            'name' => $request->name,
+            'priority' => $request->priority,
+            'attachment' => $request->attachment,
+            'date' => $request->date,
+            'description' => $request->description,
+            'userID' => $currentuserid,
+        ]);
+        return view('dashboard');
+
     }
 
     /**

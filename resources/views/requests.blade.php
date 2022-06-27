@@ -4,6 +4,12 @@
     <title>Requests</title>
 </head>
 <body>
+<div><button type="button" onclick="goToHome()">Home</button></div> <br><br>
+<script>
+    function goToHome() {
+        window.location.href="/dashboard";
+    }
+</script>
 @if (count($request)==0)
     <p color='red'> There are no requests in the database!</p>
 @else
