@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RequestController;
-
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\CommentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,6 +21,11 @@ Route::get('/', function () {
 
 Route::redirect('/request', 'request');
 Route::resource('request', RequestController::class);
+
+Route::redirect('/users', 'users');
+Route::resource('users', UserController::class);
+
+Route::get('comments/{id}/', [RequestController::class, 'show']);
 
 Route::get('/create/request', function () {
     return view('create_request');
