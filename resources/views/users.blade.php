@@ -30,17 +30,23 @@
         </tr>
         @foreach ($request as $request)
             <tr>
-                <td> {{ $request->id }} </td>
+                <td> {{ $id = $request->id }} </td>
                 <td> {{ $request->created_at }} </td>
                 <td> {{ $request->updated_at }} </td>
                 <td> {{ $request->name }} </td>
                 <td> {{ $request->surname }} </td>
                 <td> {{ $request->groupID }} </td>
                 <td> {{ $request->email }} </td>
+                <td> <input type="button" value="update" onclick="updateUser({{$id }})"></td>
         @endforeach
     </table>
 @endif
+<script>
 
+    function updateUser(id) {
+        window.location.href = "update/"+id;
+    }
+</script>
 </body>
 </html>
 

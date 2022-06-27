@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
     /**
@@ -67,11 +68,22 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        User::where('id', $request->id)
+            ->update(['name' => $request->name,
+                'surname'=>$request->surname,
+                'surname'=>$request->surname,
+                'groupID'=>$request->group,
+                'email'=>$request->email,
+                'password'=>Hash::make($request->password)]);
+        return redirect('users');
     }
-
+    public function createUpdate($id)
+    {
+        $user = User::findOrFail($id);
+        return view('users_update', compact('user'));
+    }
     /**
      * Remove the specified resource from storage.
      *

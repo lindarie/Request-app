@@ -28,6 +28,9 @@ Route::resource('users', UserController::class);
 Route::get('comments/{id}/', [RequestController::class, 'show']);
 Route::post('comments/', [CommentController::class, 'create']);
 
+Route::get('/update/{id}', [UserController::class, 'createUpdate']);
+Route::post('update',[UserController::class, 'update']);
+
 Route::get('/create/request', function () {
     return view('create_request');
 })->middleware(['auth'])->name('create_request');
