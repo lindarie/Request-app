@@ -16,7 +16,7 @@
                         {{ __('Home') }}
                     </x-nav-link>
                     <x-nav-link href="/request/">All requests</x-nav-link>
-                    <x-nav-link href="/users/">All Users</x-nav-link>
+                    <x-nav-link href="/users/">Users</x-nav-link>
                 </div>
             </div>
 
