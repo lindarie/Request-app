@@ -9,6 +9,10 @@
     function goToHome() {
         window.location.href="/dashboard";
     }
+    function showRequest(id) {
+
+        window.location.href="/comments/"+id;
+    }
 </script>
 @if (count($request)==0)
     <p color='red'> There are no requests in the database!</p>
@@ -41,6 +45,7 @@
                 <td> {{ $request->status }} </td>
                 <td> {{ $request->description }} </td>
                 <td> {{ $request->attachment }} </td>
+                <td><button type="button" onclick="showRequest( {{$request->id}} )">Show more</button></td>
         @endforeach
     </table>
 @endif
