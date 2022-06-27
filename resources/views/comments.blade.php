@@ -4,6 +4,12 @@
     <title>Requests</title>
 </head>
 <body>
+<div><button type="button" onclick="showRequests()">Show All Requests</button></div> <br><br>
+<script>
+    function showRequests() {
+        window.location.href="/request/";
+    }
+</script>
 <table style="border: 1px solid black">
     <tr>
         <td> Request Id</td>
