@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Comments;
 class CommentController extends Controller
 {
     /**
@@ -13,7 +13,7 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
