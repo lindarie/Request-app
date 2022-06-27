@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Requests;
+use App\Models\Comments;
 use Auth;
 class RequestController extends Controller
 {
@@ -58,7 +59,11 @@ class RequestController extends Controller
      */
     public function show($id)
     {
-        //
+        $showrequest=Requests::where('id','=',$id)->get();
+        $showcomment=Comments::where('requestID','=',$id)->get();
+        //echo $showcomment;
+        return view('comments', compact('showrequest', 'showcomment'));
+
     }
 
     /**
