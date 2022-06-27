@@ -61,9 +61,7 @@ class RequestController extends Controller
     {
         $showrequest=Requests::where('id','=',$id)->get();
         $showcomment=Comments::where('requestID','=',$id)->get();
-        //echo $showcomment;
         return view('comments', compact('showrequest', 'showcomment'));
-
     }
 
     /**

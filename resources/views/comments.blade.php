@@ -3,7 +3,7 @@
 <head>
     <title>Requests</title>
 </head>
-<body onload="showComments()">
+<body>
 <table style="border: 1px solid black">
     <tr>
         <td> Request Id</td>
@@ -20,7 +20,7 @@
     </tr>
     @foreach ($showrequest as $request)
         <tr>
-            <td> {{ $request->id }} </td>
+            <td> {{ $id =$request->id }} </td>
             <td> {{ $request->created_at }} </td>
             <td> {{ $request->updated_at }} </td>
             <td> {{ $request->date }} </td>
@@ -62,10 +62,15 @@
         @endforeach
     </table>
 @endif
-<script>
-    function showComments(id) {
-    }
-</script>
+
+<form method="POST" action="{{action([App\Http\Controllers\CommentController::class, 'create']) }}">
+    @csrf
+    <input type="hidden" name="requestID" id="requestID" value="{{$id}}">
+    <label for="text">Comment: </label>
+    <input type="text" name="text" id="text">
+    <input type="submit" value="add">
+</form>
+
 
 </body>
 </html>

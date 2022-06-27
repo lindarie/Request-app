@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Requests;
 use Illuminate\Http\Request;
 use App\Models\Comments;
+use Auth;
 class CommentController extends Controller
 {
     /**
@@ -21,9 +23,17 @@ class CommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $currentuserid = Auth::user()->id;
+        $newcomment = Comments::create([
+            'text' => $request->text,
+            'requestID' => $request->requestID,
+            'userID' => $currentuserid,
+        ]);
+        $showrequest=Requests::where('id','=',$request->requestID)->get();
+        $showcomment=Comments::where('requestID','=',$request->requestID)->get();
+        return view('comments', compact('newcomment', 'showrequest', 'showcomment'));
     }
 
     /**
@@ -34,7 +44,7 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**

@@ -10,6 +10,7 @@ use App\Models\Requests;
 class Comments extends Model
 {
     use HasFactory;
+    protected $fillable = ['text', 'requestID', 'userID'];
     public function users()
     { // FKrelationship
         return $this->hasMany(User::class);

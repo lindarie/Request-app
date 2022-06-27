@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->date('date');
             $table->string('text',256);
             $table->unsignedBigInteger('userID');
             $table->foreign('userID')->references('id')->on('users');

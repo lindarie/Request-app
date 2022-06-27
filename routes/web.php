@@ -26,6 +26,7 @@ Route::redirect('/users', 'users');
 Route::resource('users', UserController::class);
 
 Route::get('comments/{id}/', [RequestController::class, 'show']);
+Route::post('comments/', [CommentController::class, 'create']);
 
 Route::get('/create/request', function () {
     return view('create_request');
