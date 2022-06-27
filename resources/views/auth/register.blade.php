@@ -18,6 +18,20 @@
 
                 <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
             </div>
+            <!-- Surname -->
+            <div>
+                <x-label for="surname" :value="__('Surname')" />
+                <x-input id="surname" class="block mt-1 w-full" type="text" name="surname" :value="old('surname')" required autofocus />
+            </div>
+            <div>
+               <x-label for="group" :value="__('Group')" />
+               <select id="group" class="block mt-1 w-full" type="number" name="group">
+                   <option value="1">User</option>
+                   <option value="2">Administrator</option>
+                   <option value="3">IT department</option>
+               </select>
+            </div>
+
 
             <!-- Email Address -->
             <div class="mt-4">
