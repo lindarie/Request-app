@@ -9,6 +9,7 @@ use App\Models\Requests;
 use App\Models\User;
 use App\Models\Groups;
 use App\Models\Comments;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -42,19 +43,18 @@ class DatabaseSeeder extends Seeder
 
         $users = User::create([
             'id' => 1,
-            'name' => 'Jānis',
-            'surname' => 'Saulītis',
-            'email' => 'janis.saulitis@test.lv',
-            'password' => 'a6ccEZ94',
+            'name' => 'Linda',
+            'surname' => 'Rieksta',
+            'email' => 'linda.rieksta@test.lv',
+            'password' => Hash::make('Parole123'),
             'groupID' => 1,
         ]);
         $users = User::create([
             'id' => 2,
             'name' => 'Emīls',
             'surname' => 'Ozoliņš',
-            'email' => 'emils.ozolins@test.lv
-',
-            'password' => 'Pm3ucbKm',
+            'email' => 'emils.ozolins@test.lv',
+            'password' => Hash::make('Pm3ucbKm'),
             'groupID' => 1,
         ]);
         $users = User::create([
@@ -62,7 +62,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Anna',
             'surname' => 'Priedīte',
             'email' => 'anna.priedite@test.lv',
-            'password' => 'MMpgQx5D',
+            'password' => Hash::make('MMpgQx5D'),
             'groupID' => 1,
         ]);
         $users = User::create([
@@ -70,7 +70,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Ieva',
             'surname' => 'Zariņa',
             'email' => 'ieva.zarina@test.lv',
-            'password' => '7GXbVeR3',
+            'password' => Hash::make('7GXbVeR3'),
             'groupID' => 2,
         ]);
         $users = User::create([
@@ -78,7 +78,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Gustavs',
             'surname' => 'Liepa',
             'email' => 'gustavs.liepa@test.lv',
-            'password' => 'Xbr97pzs',
+            'password' => Hash::make('Xbr97pzs'),
             'groupID' => 3,
         ]);
         //requests
@@ -141,21 +141,18 @@ class DatabaseSeeder extends Seeder
         $comments = Comments::create([
             'id' => 1,
             'text' => 'Will be fixed',
-            'date' => '2022-05-05',
             'userID' => 5,
             'requestID' => 1
         ]);
         $comments = Comments::create([
             'id' => 2,
             'text' => 'Ok',
-            'date' => '2022-05-05',
             'userID' => 5,
             'requestID' => 2
         ]);
         $comments = Comments::create([
             'id' => 3,
             'text' => 'Will be created',
-            'date' => '2022-05-05',
             'userID' => 5,
             'requestID' => 3
         ]);
