@@ -33,7 +33,7 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -44,7 +44,7 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -55,7 +55,7 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -66,8 +66,8 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
@@ -75,35 +75,34 @@ class UserController extends Controller
         $rules = array(
             'name' => 'required',
             'surname' => 'required',
-            'email' => 'required|email|unique:users',
+            'email' => 'required|email',
             'password' => 'required| min:8',
         );
         $this->validate($request, $rules);
 
         User::where('id', $request->id)
             ->update(['name' => $request->name,
-                'surname'=>$request->surname,
-                'groupID'=>$request->group,
-                'email'=>$request->email,
-                'password'=>Hash::make($request->password)]);
+                'surname' => $request->surname,
+                'groupID' => $request->group,
+                'email' => $request->email,
+                'password' => Hash::make($request->password)]);
         return redirect('users');
     }
+
     public function createUpdate($id)
     {
         $user = User::findOrFail($id);
         return view('users_update', compact('user'));
     }
+
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        if (Comments::where('userID',$id)->exists()) {
-            Comments::where('userID',$id)->delete();
-        }
         if (Requests::where('userID',$id)->exists()) {
             Requests::where('userID', $id)->delete();
         }

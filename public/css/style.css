@@ -1,0 +1,149 @@
+@charset "UTF-8";
+
+body{
+background-color: #fff;
+    font-family: 'Nunito', sans-serif;
+
+}
+.bold{
+    font-weight: bold;
+}
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+td {
+    padding: 10px 10px 10px 10px;
+}
+.headdings{
+    color: #274472;
+    font-weight: bold;
+}
+table{
+    padding-top: 50px;
+}
+.usersTable{
+    padding-top: 20px;
+    margin-left: 10%;
+}
+
+button{
+    background-color: #9CB4CC;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 30px;
+}
+.updateButton{
+    background-color: #9CB4CC;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 30px;
+}
+.deleteButton{
+    background-color: #cd5c5c;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 30px;
+}
+
+.homebutton{
+    margin-top: 30px;
+    margin-left: 30px;
+    background-color: #cea2fd;
+}
+.createUserButton{
+    margin-left: 30px;
+}
+hr{
+    width: 70%;
+}
+.newRequest{
+    font-size: 20px;
+    width: 40%;
+}
+img{
+    width: 10%;
+}
+.formCenter {
+    padding-top: 5%;
+    padding-left: 30%;
+}
+.requestCenter {
+    width: 500px;
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    padding-left: 50px;
+    margin-left: 30%;
+    border: 1px solid red;
+}
+.cancelButton{
+    margin-left: 30%;
+}
+
+.hcenter{
+    margin-left: 20%;
+    font-size: 18px;
+    font-weight: bold;
+}
+.submit{
+    background-color: #30508A;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 30px;
+}
+.formCenter2{
+    width: 400px;
+    height: auto;
+    margin-top: 40px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    padding-left: 100px;
+    margin-left: 40%;
+    border: 1px solid red;
+}
+.comment{
+    width: 400px;
+    height: auto;
+    margin-top: 20px;
+    padding: 20px;
+    margin-left: 30px;
+    border: 1px solid gray;
+    border-radius: 30px;
+    background-color: #F5F5F5;
+}
+.addButton{
+    background-color: #30508A;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 30px;
+}
+
+
+

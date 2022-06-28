@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
     <title>{{__('customlang.Users')}}</title>
+    <link rel="stylesheet" href={{ asset('css/style.css')}}>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;400&display=swap');
+    </style>
 </head>
 <body>
-<div><button type="button" onclick="goToHome()">{{__('customlang.Home')}}</button></div> <br>
-<div><button type="button" onclick="createUser()">{{__('customlang.Create User')}}</button></div> <br><br>
+<div><button class="homebutton" type="button" onclick="goToHome()">{{__('customlang.Home')}}</button></div> <br>
+<div><button class="createUserButton" type="button" onclick="createUser()">{{__('customlang.Create User')}}</button></div> <br><br>
 <script>
     function goToHome() {
         window.location.href="/dashboard";
@@ -18,7 +24,7 @@
     <p color='red'>{{__('customlang.There are no users in the database')}} !</p>
 @else
 
-    <table style="border: 1px solid black">
+    <table class="usersTable" style="border: 1px solid black">
         <tr>
             <td> {{__('customlang.User ID')}} </td>
             <td> {{__('customlang.Created at')}} </td>
@@ -37,9 +43,9 @@
                 <td> {{ $request->surname }} </td>
                 <td> {{ $request->groupID }} </td>
                 <td> {{ $request->email }} </td>
-                <td> <input type="button" value="{{__('customlang.update')}}" onclick="updateUser({{$id }})"></td>
+                <td> <input class="updateButton" type="button" value="{{__('customlang.update')}}" onclick="updateUser({{$id }})"></td>
                 <td>
-                    <form method="POST" action="{{action([App\Http\Controllers\UserController::class, 'destroy'], $id) }}"> @csrf @method('DELETE') <input type="submit" value="{{__('customlang.delete')}}"/></form>
+                    <form method="POST" action="{{action([App\Http\Controllers\UserController::class, 'destroy'], $id) }}"> @csrf @method('DELETE') <input class="deleteButton" type="submit" value="{{__('customlang.delete')}}"/></form>
                 </td>
         @endforeach
     </table>
