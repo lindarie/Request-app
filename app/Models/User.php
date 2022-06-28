@@ -40,6 +40,21 @@ class User extends Authenticatable
     { // FK relationship
         return $this->belongsTo(Requests::class);
     }
+    public function isUser()
+    {
+        if($this->groupID === 1) {return true;}
+        else {return false;}
+    }
+    public function isAdministrator()
+    {
+        if($this->groupID === 2) {return true;}
+        else {return false;}
+    }
+    public function isDepartment()
+    {
+        if($this->groupID === 3) {return true;}
+        else {return false;}
+    }
 
     /**
      * The attributes that should be cast.

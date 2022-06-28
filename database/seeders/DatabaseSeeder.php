@@ -21,15 +21,15 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-        // \App\Models\User::factory(10)->create();
+        // \App\Models\userRole::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
+        // \App\Models\userRole::factory()->create([
+        //     'name' => 'Test userRole',
         //     'email' => 'test@example.com',
         // ]);
         $groups = Groups::create([
             'id' => 1,
-            'name' => 'User'
+            'name' => 'userRole'
         ]);
         $groups = Groups::create([
             'id' => 2,

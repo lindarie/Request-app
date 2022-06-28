@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RequestController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CommentController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,24 +20,30 @@ Route::get('/', function () {
     return view('login');
 })->middleware(['auth'])->name('login');
 
-Route::redirect('/request', 'request');
-Route::resource('request', RequestController::class);
-
-Route::redirect('/users', 'users');
-Route::resource('users', UserController::class);
-
-Route::get('comments/{id}/', [RequestController::class, 'show']);
-Route::post('comments/', [CommentController::class, 'create']);
-
-Route::get('/update/{id}', [UserController::class, 'createUpdate']);
-Route::post('update',[UserController::class, 'update']);
-
-Route::get('/create/request', function () {
-    return view('create_request');
-})->middleware(['auth'])->name('create_request');
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::middleware('auth')->group(function () { //autentificēti lietotāji var skatīt pieteikumus un komentārus
+    Route::redirect('/request', 'request');
+    Route::resource('request', RequestController::class);
+    Route::get('comments/{id}/', [RequestController::class, 'show']);
+});
+
+Route::middleware('user')->group(function () { //lietotāji var izveidot pieteikumus
+    Route::get('/create/request', function () {
+        return view('create_request');
+    });
+});
+
+Route::middleware('administrator')->group(function () { //administratori var skatīt un rediģēt lietotājus
+    Route::redirect('/users', 'users');
+    Route::resource('users', UserController::class);
+    Route::get('/update/{id}', [UserController::class, 'createUpdate']);
+    Route::post('update',[UserController::class, 'update']);
+});
+
+Route::middleware('department')->group(function () { //departments var izveidot komentārus
+    Route::post('comments/', [CommentController::class, 'create']);
+});
 require __DIR__.'/auth.php';
