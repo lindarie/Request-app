@@ -4,7 +4,7 @@
     <title>Requests</title>
 </head>
 <body>
-<div><button type="button" onclick="showRequests()">Show All Requests</button></div> <br><br>
+<div><button type="button" onclick="showRequests()">{{__('customlang.Show All Requests')}}</button></div> <br><br>
 <script>
     function showRequests() {
         window.location.href="/request/";
@@ -12,17 +12,17 @@
 </script>
 <table style="border: 1px solid black">
     <tr>
-        <td> Request Id</td>
-        <td> Created at</td>
-        <td> Updated at</td>
-        <td> Date</td>
-        <td> User ID</td>
-        <td> Request type</td>
-        <td> Summary</td>
-        <td> Priority</td>
-        <td> Status</td>
-        <td> Description</td>
-        <td> Attachment</td>
+        <td>{{__('customlang.Request Id')}}  </td>
+        <td> {{__('customlang.Created at')}} </td>
+        <td> {{__('customlang.Updated at')}} </td>
+        <td> {{__('customlang.Date')}} </td>
+        <td>{{__('customlang.User ID')}}  </td>
+        <td> {{__('customlang.Request type')}} </td>
+        <td> {{__('customlang.Summary')}} </td>
+        <td> {{__('customlang.Priority')}} </td>
+        <td> {{__('customlang.Status')}} </td>
+        <td> {{__('customlang.Description')}} </td>
+        <td>{{__('customlang.Attachment')}}  </td>
     </tr>
     @foreach ($showrequest as $request)
         <tr>
@@ -42,7 +42,7 @@
 @endforeach
 
 @if (count($showcomment)==0)
-    <p color='red'> There are no comments!</p>
+    <p color='red'> {{__('customlang.There are no comments!')}}</p>
 @else
     <table style="border: 1px solid black">
         <tr>
@@ -72,9 +72,9 @@
 <form method="POST" action="{{action([App\Http\Controllers\CommentController::class, 'create']) }}">
     @csrf
     <input type="hidden" name="requestID" id="requestID" value="{{$id}}">
-    <label for="text">Comment: </label>
+    <label for="text">{{__('customlang.Comment:')}} </label>
     <input type="text" name="text" id="text">
-    <input type="submit" value="add">
+    <input type="submit" value="{{__('customlang.Add')}}">
 </form>
 
 
