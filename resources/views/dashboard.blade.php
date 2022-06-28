@@ -17,7 +17,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
 
-
+                    @if (Auth::user()->groupID==1)
                     <div><button type="button" onclick="newRequest()">{{__('customlang.Create a new request')}}</button></div>
                 </div>
                 <script>
@@ -25,6 +25,8 @@
                         window.location.href="/create/request";
                     }
                 </script>
+                @endif
+
             </div>
         </div>
     </div>

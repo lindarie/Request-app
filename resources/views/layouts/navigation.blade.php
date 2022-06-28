@@ -16,7 +16,9 @@
                         {{ __('customlang.Home') }}
                     </x-nav-link>
                     <x-nav-link href="/request/">{{ __('customlang.All requests') }}</x-nav-link>
+                    @if (Auth::user()->groupID==2)
                     <x-nav-link href="/users/">{{ __('customlang.Users') }}</x-nav-link>
+                    @endif
                 </div>
             </div>
 

@@ -68,6 +68,7 @@
         @endforeach
     </table>
 @endif
+@if (Auth::user()->groupID==3)
 
 <form method="POST" action="{{action([App\Http\Controllers\CommentController::class, 'create']) }}">
     @csrf
@@ -76,6 +77,7 @@
     <input type="text" name="text" id="text">
     <input type="submit" value="{{__('customlang.Add')}}">
 </form>
+@endif
 
 
 </body>

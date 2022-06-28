@@ -57,15 +57,4 @@ return[
     'Register' => 'Register',
     'Log in' => 'Log in',
     'Languages' => 'Languages',
-
-
-
-
-
-
-
-
-
-
-
 ];
