@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Requests;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Comments;
 use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
@@ -92,6 +94,13 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (Comments::where('userID',$id)->exists()) {
+            Comments::where('userID',$id)->delete();
+        }
+        if (Requests::where('userID',$id)->exists()) {
+            Requests::where('userID', $id)->delete();
+        }
+        User::where('id',$id)->delete();
+        return redirect('users');
     }
 }

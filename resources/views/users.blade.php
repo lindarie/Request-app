@@ -38,6 +38,9 @@
                 <td> {{ $request->groupID }} </td>
                 <td> {{ $request->email }} </td>
                 <td> <input type="button" value="update" onclick="updateUser({{$id }})"></td>
+                <td>
+                    <form method="POST" action="{{action([App\Http\Controllers\UserController::class, 'destroy'], $id) }}"> @csrf @method('DELETE') <input type="submit" value="delete"/></form>
+                </td>
         @endforeach
     </table>
 @endif
