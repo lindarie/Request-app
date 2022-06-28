@@ -55,4 +55,5 @@ return[
     'Confirm Password' => 'Apstiprināt paroli',
     'Register' => 'Reģistrēt',
     'Log in' => 'Pierakstīties',
+    'Languages' => 'Valodas',
 ];

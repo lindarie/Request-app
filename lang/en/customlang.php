@@ -56,6 +56,7 @@ return[
     'Update a user' => 'Update a user',
     'Register' => 'Register',
     'Log in' => 'Log in',
+    'Languages' => 'Languages',
 
 
 
