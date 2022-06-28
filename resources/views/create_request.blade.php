@@ -37,6 +37,15 @@
 
         <label for="description">{{__('customlang.Description')}}:</label><br><br>
         <textarea id="description" name="description" rows="15" cols="100"></textarea> <br><br>
+    @if (count($errors) > 0)
+        <div>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li style="color:red">{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
     <input type="submit" value="{{__('customlang.Send')}}">
 </form>

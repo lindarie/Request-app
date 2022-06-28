@@ -36,6 +36,14 @@ class RequestController extends Controller
      */
     public function store(Request $request)
     {
+        $rules = array(
+            'request_type' => 'required',
+            'name' => 'required',
+            'priority' => 'required',
+            'date' => 'required',
+            'description' => 'required',
+        );
+        $this->validate($request, $rules);
         $currentuserid = Auth::user()->id;
         $newrequest = Requests::create([
             'request_type' => $request->request_type,

@@ -25,6 +25,10 @@ class CommentController extends Controller
      */
     public function create(Request $request)
     {
+        $rules = array(
+            'text' => 'required',
+        );
+        $this->validate($request, $rules);
         $currentuserid = Auth::user()->id;
         $newcomment = Comments::create([
             'text' => $request->text,

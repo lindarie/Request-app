@@ -72,9 +72,16 @@ class UserController extends Controller
      */
     public function update(Request $request)
     {
+        $rules = array(
+            'name' => 'required',
+            'surname' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required| min:8',
+        );
+        $this->validate($request, $rules);
+
         User::where('id', $request->id)
             ->update(['name' => $request->name,
-                'surname'=>$request->surname,
                 'surname'=>$request->surname,
                 'groupID'=>$request->group,
                 'email'=>$request->email,

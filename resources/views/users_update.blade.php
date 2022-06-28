@@ -24,6 +24,15 @@
 
     <label for="password">{{__('customlang.Password')}}: </label>
     <input type="password" name="password" id="password"><br><br>
+    @if (count($errors) > 0)
+        <div>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li style="color:red">{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <input type="submit" value="{{__('customlang.update')}}">
 </form>
 

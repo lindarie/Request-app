@@ -16,20 +16,9 @@ use App\Http\Controllers\CommentController;
 |
 */
 
-/*
-Route::get('/lang/lv', function () {
-    //App::setLocale('lv');
-    return view('dashboard');
-});
-Route::get('/lang/en', function () {
-    App::setLocale('en');
-    return view ('dashboard');
-});*/
 Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);
 
-
 Route::get('/', function () {
-
     return view('login');
 })->middleware(['auth'])->name('login');
 

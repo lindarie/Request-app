@@ -69,6 +69,15 @@
     </table>
 @endif
 @if (Auth::user()->groupID==3)
+    @if (count($errors) > 0)
+        <div>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li style="color:red">{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
 <form method="POST" action="{{action([App\Http\Controllers\CommentController::class, 'create']) }}">
     @csrf
