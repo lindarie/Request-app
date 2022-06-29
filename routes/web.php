@@ -32,6 +32,7 @@ Route::middleware('auth')->group(function () { //autentificēti lietotāji var s
     Route::redirect('/request', 'request');
     Route::resource('request', RequestController::class);
     Route::get('comments/{id}/', [RequestController::class, 'show']);
+    Route::resource('comments', CommentController::class);
 });
 
 Route::middleware('user')->group(function () { //lietotāji var izveidot pieteikumus
@@ -48,6 +49,10 @@ Route::middleware('administrator')->group(function () { //administratori var ska
 });
 
 Route::middleware('department')->group(function () { //departments var izveidot komentārus
+    //Route::resource('comments', CommentController::class);
     Route::post('comments/', [CommentController::class, 'create']);
+
+
+
 });
 require __DIR__.'/auth.php';

@@ -39,26 +39,10 @@
     <div> {{ $request->status }} </div><br>
     <div class="bold"> {{__('customlang.Description')}} </div>
     <div> {{ $request->description }} </div><br>
-    <div class="bold">  {{__('customlang.Attachment')}}  </div>
-    <div> {{ $request->attachment }} </div><br>
     </div>
 @endforeach
 
-@if (count($showcomment)==0)
-    <p color='red'> {{__('customlang.There are no comments!')}}</p>
-@else
 
-        <br><br>
-        @foreach ($showcomment as $request)
-            <div class="comment">
-            <div> User: {{ $request->userID }}</div>
-            <div class="bold"> {{ $request->text }} </div>
-            <div> Created: {{ $request->created_at }}</div>
-            </div>
-            <br><br>
-        @endforeach
-
-@endif
 @if (Auth::user()->groupID==3)
     @if (count($errors) > 0)
         <div>
@@ -77,6 +61,25 @@
         <input type="text" size="50" name="text" id="text"> <br><br>
         <input type="submit" class="addButton" value="{{__('customlang.Add')}}">
     </form>
+@endif
+
+@if (count($showcomment)==0)
+    <p color='red'> {{__('customlang.There are no comments!')}}</p>
+@else
+
+    <br><br>
+    @foreach ($showcomment as $request)
+        <div class="comment">
+            <div> User: {{ $request->userID }}</div>
+            <div class="bold"> {{ $request->text }} </div>
+            <div> Created: {{ $request->created_at }}</div>
+        </div>
+        <br><br>
+        @if (Auth::user()->groupID==2 || Auth::user()->groupID==3)
+        <form method="POST" action="{{action([App\Http\Controllers\CommentController::class, 'destroy'], $request->id) }}"> @csrf @method('DELETE') <input class="deleteButton" type="submit" value="{{__('customlang.delete')}}"/></form>
+   @endif
+    @endforeach
+
 @endif
 
 
