@@ -24,7 +24,6 @@ return new class extends Migration
             $table->string('priority',30);
             $table->string('status',30);
             $table->string('description',256);
-            $table->binary('attachment')->nullable();
         });
     }
 

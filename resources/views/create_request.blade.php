@@ -36,9 +36,6 @@
         <option value="D">{{__('customlang.D - Low')}}</option>
     </select><br><br>
 
-        <label for="attachment">{{__('customlang.Attach a file')}}:</label> <br><br>
-        <input type="file" id="attachment" name="attachment"><br><br>
-
         <label for="date">{{__('customlang.Date')}}:</label><br><br>
         <input type="date" id="date" name="date"><br><br>
 

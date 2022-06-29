@@ -50,7 +50,6 @@ class RequestController extends Controller
             'status' => $request->status,
             'name' => $request->name,
             'priority' => $request->priority,
-            'attachment' => $request->attachment,
             'date' => $request->date,
             'description' => $request->description,
             'userID' => $currentuserid,

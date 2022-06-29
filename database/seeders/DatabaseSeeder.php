@@ -45,7 +45,7 @@ class DatabaseSeeder extends Seeder
             'id' => 1,
             'name' => 'Linda',
             'surname' => 'Rieksta',
-            'email' => 'linda.rieksta@test.lv',
+            'email' => 'linda@tests.lv',
             'password' => Hash::make('Parole123'),
             'groupID' => 1,
         ]);
@@ -81,13 +81,28 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('Xbr97pzs'),
             'groupID' => 3,
         ]);
+        $users = User::create([
+            'id' => 6,
+            'name' => 'Linda',
+            'surname' => 'Rieksta',
+            'email' => 'linda@tests2.lv',
+            'password' => Hash::make('Parole123'),
+            'groupID' => 2,
+        ]);
+        $users = User::create([
+            'id' => 7,
+            'name' => 'Linda',
+            'surname' => 'Rieksta',
+            'email' => 'linda@tests3.lv',
+            'password' => Hash::make('Parole123'),
+            'groupID' => 3,
+        ]);
         //requests
         $requests = Requests::create([
             'id' => 1,
             'request_type' => 'Error',
             'name' => 'Web error',
             'priority' => 'A',
-            'attachment' => 'NULL',
             'date' => '2022-05-05',
             'description' => 'Web page is not working',
             'status' => 'In progress',
@@ -98,7 +113,6 @@ class DatabaseSeeder extends Seeder
             'request_type' => 'Consultation',
             'name' => 'New consultation',
             'priority' => 'B',
-            'attachment' => 'NULL',
             'date' => '2022-05-05',
             'description' => 'New consultation',
             'status' => 'Open',
@@ -109,7 +123,6 @@ class DatabaseSeeder extends Seeder
             'request_type' => 'Change',
             'name' => 'New funtionality',
             'priority' => 'C',
-            'attachment' => 'NULL',
             'date' => '2022-05-05',
             'description' => 'Create new button in homepage',
             'status' => 'Closed',
@@ -120,7 +133,6 @@ class DatabaseSeeder extends Seeder
             'request_type' => 'Travel request',
             'name' => 'Seminar',
             'priority' => 'C',
-            'attachment' => 'NULL',
             'date' => '2022-05-05',
             'description' => 'Participate in seminar',
             'status' => 'Reopened',
@@ -131,7 +143,6 @@ class DatabaseSeeder extends Seeder
             'request_type' => 'Purchase',
             'name' => 'Purchase of computers',
             'priority' => 'C',
-            'attachment' => 'NULL',
             'date' => '2022-05-05',
             'description' => 'Need to buy 10 more computers for office',
             'status' => 'Closed',
